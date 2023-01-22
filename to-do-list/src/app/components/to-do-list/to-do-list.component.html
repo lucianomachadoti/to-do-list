@@ -1,0 +1,14 @@
+<h1>To Do List - Daily Routine</h1>
+
+<span *ngIf="toDoList.length === 0">Tasks list is empty</span>
+<ul>
+    <li *ngFor="let toDo of toDoList; index as i">
+        <input type="checkbox" [(ngModel)]="toDo.remove"> - {{ toDo.name }} 
+    </li>
+</ul>
+
+<input class="spacing" type="text" #taskName [(ngModel)]="taskNameValue" /> <span class="spacing" *ngIf="message">{{ message }}</span>
+<br />
+<br />
+<button class="spacing" (click)="addTask(taskName.value)">Add Task</button>
+<button class="spacing" (click)="removeTasks()">Remove One Selected Task</button>
